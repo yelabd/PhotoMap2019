@@ -12,12 +12,15 @@ import MapKit
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var cameraButton: UIButton!
 
     var pickedImage: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        cameraButton.layer.cornerRadius = cameraButton.frame.height/2
+        
         // San Francisco Lat, Long = latitude: 37.783333, longitude: -122.416667
         let mapCenter = CLLocationCoordinate2D(latitude: 37.783333, longitude: -122.416667)
         let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
