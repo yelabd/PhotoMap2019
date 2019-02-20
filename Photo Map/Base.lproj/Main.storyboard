@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="jTD-rF-wIY">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photo Map View Controller-->
+        <!--PhotoMap-->
         <scene sceneID="Eh3-Ch-REm">
             <objects>
                 <viewController id="ghP-Ww-KKQ" customClass="PhotoMapViewController" customModule="Photo_Map" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,16 +18,20 @@
                         <viewControllerLayoutGuide type="bottom" id="ufw-e1-uLx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Lxe-6f-KEH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yYm-4z-Mhd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSh-dK-52i">
-                                <rect key="frame" x="149.5" y="607" width="76" height="30"/>
-                                <color key="backgroundColor" red="0.086274509999999999" green="0.65882352899999996" blue="0.41960784299999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Take Photo">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSh-dK-52i">
+                                <rect key="frame" x="142.66666666666666" y="658" width="90" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="KMh-Ey-Tih"/>
+                                    <constraint firstAttribute="width" constant="90" id="rRw-7e-rrq"/>
+                                </constraints>
+                                <state key="normal" image="camera">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -38,15 +42,16 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ufw-e1-uLx" firstAttribute="top" secondItem="RSh-dK-52i" secondAttribute="bottom" constant="30" id="BMu-Wa-NlX"/>
-                            <constraint firstItem="ufw-e1-uLx" firstAttribute="top" secondItem="yYm-4z-Mhd" secondAttribute="bottom" id="QUb-CY-xog"/>
+                            <constraint firstAttribute="bottom" secondItem="yYm-4z-Mhd" secondAttribute="bottom" id="MEK-G0-GIg"/>
                             <constraint firstAttribute="trailing" secondItem="yYm-4z-Mhd" secondAttribute="trailing" id="WvD-A9-adz"/>
                             <constraint firstItem="yYm-4z-Mhd" firstAttribute="leading" secondItem="Lxe-6f-KEH" secondAttribute="leading" id="ZPb-nt-UB3"/>
                             <constraint firstItem="yYm-4z-Mhd" firstAttribute="top" secondItem="vrG-Wc-0bn" secondAttribute="bottom" id="cRU-2q-cRt"/>
                             <constraint firstItem="RSh-dK-52i" firstAttribute="centerX" secondItem="Lxe-6f-KEH" secondAttribute="centerX" id="urp-7q-7vk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aPF-0T-Ydb"/>
+                    <navigationItem key="navigationItem" title="PhotoMap" id="aPF-0T-Ydb"/>
                     <connections>
+                        <outlet property="cameraButton" destination="RSh-dK-52i" id="Tt7-xT-nhh"/>
                         <outlet property="mapView" destination="yYm-4z-Mhd" id="pVc-EI-O26"/>
                         <segue destination="eZf-Nb-6PU" kind="push" identifier="tagSegue" id="Tzv-N2-17x"/>
                         <segue destination="WeT-38-qba" kind="push" identifier="fullImageSegue" id="B5X-dM-HfZ"/>
@@ -54,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxu-uv-tTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025.5999999999999" y="-2.6986506746626691"/>
+            <point key="canvasLocation" x="1024.8" y="-2.9556650246305418"/>
         </scene>
         <!--Full Image View Controller-->
         <scene sceneID="VWW-Rb-sI4">
@@ -65,11 +70,25 @@
                         <viewControllerLayoutGuide type="bottom" id="N8d-FM-OAP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IER-PT-2nq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EWf-ki-Fbz">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EWf-ki-Fbz" secondAttribute="trailing" id="2Xy-k8-Im5"/>
+                            <constraint firstItem="N8d-FM-OAP" firstAttribute="top" secondItem="EWf-ki-Fbz" secondAttribute="bottom" id="7Fk-eZ-uo7"/>
+                            <constraint firstItem="EWf-ki-Fbz" firstAttribute="top" secondItem="FF8-mr-LhG" secondAttribute="bottom" id="LXO-hl-Fqr"/>
+                            <constraint firstItem="EWf-ki-Fbz" firstAttribute="leading" secondItem="IER-PT-2nq" secondAttribute="leading" id="qcr-4i-2OT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HUo-VF-R6y"/>
+                    <connections>
+                        <outlet property="bgImageView" destination="EWf-ki-Fbz" id="ezo-4c-dNR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRl-fe-rlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,11 +103,11 @@
                         <viewControllerLayoutGuide type="bottom" id="nWs-YP-WbV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="erf-MR-Y0D">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BsJ-w6-1O2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="d2g-cJ-R4d">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -100,7 +119,7 @@
                                         <rect key="frame" x="0.0" y="66" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8nY-cI-ARj" id="kg8-aL-hL3">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rf7-oN-H0f">
@@ -168,7 +187,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jTD-rF-wIY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t5z-BI-kju">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -181,4 +200,7 @@
             <point key="canvasLocation" x="174.40000000000001" y="-2.6986506746626691"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="64" height="64"/>
+    </resources>
 </document>
